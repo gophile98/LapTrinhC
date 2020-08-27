@@ -1,9 +1,12 @@
-#include <stdio.h>
-#include <math.h>
-#include <stdlib.h>
+#include<stdio.h>
+#include <iostream>
+#include <cstdlib> 
+#include <ctime> 
+#include<math.h>
+#include<string.h>
 void bt5(int n,int a[]);
 void bt2(int n,int a[]);
-void xuatmangnho(int m, int a[]);
+int xuatmangnho(int m, int a[]);
 int bt4(int n,int a[]);
 int main(int argc, char *argv[])
 {
@@ -51,9 +54,9 @@ int main(int argc, char *argv[])
 			////--///
 			case 3:
 			{
-				printf("Chua lam duoc.");
-				//int  m, a[1000];
-				//xuatmangnho(m, a);
+				//printf("Chua lam duoc.");
+				int  m, a[1000];
+				xuatmangnho(m, a);
 				break;
 			}
 			////--///
@@ -96,20 +99,40 @@ void bt2(int n,int a[])
 		printf("\na[%d] = %d", i, a[i]);
 	}
 }
-void xuatmangnho( int m, int a[])
+int xuatmangnho( int m, int a[])
 {
+	
 	int tong = 0;
 	int i;
 	printf("Nhap m:"); scanf("%d", &m);
 	printf("Cac so nguyen to nho hon hoac bang %d la:\n", m);
-	for(i = 0; i < m; i ++){
+	/*for(i = 0; i < m; i ++){
 		if(a[i] <= m){
 			printf("a[%d] = %d\n", i, a[i]);
 			tong+=a[i];
 		}
-	}	
-		printf("Tong cac phan tu nguyen to nho hon hoac bang %d la: %d\n",m, tong, a[i]);
+	}	*/
+
+    if (m < 2)    
+        return 0;
+
+    for (int i = 2; i <= sqrt((float)m); i ++)
+    {
+    	
+        if (m%i==0)
+        {
+            return 0;
+             printf("Tong cac phan tu nguyen to nho hon hoac bang %d la: %d\n",m, tong, a[i]);
+        }
+    }
+   	
+    return 1;
+    
 }
+	
+	
+		
+
 
 int bt4(int n,int a[])
 {
